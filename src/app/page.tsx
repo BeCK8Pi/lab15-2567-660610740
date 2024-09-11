@@ -54,7 +54,7 @@ const schema = z
   .refine(
     //refine allows you check error in your own way
     //in this example, we check "hasCoupon" with "coupon" fields
-    (data:any) => {
+    (data) => {
       // if user does not tick "I have coupon", then it's ok
       if (!data.hasCoupon) return true;
 
@@ -71,7 +71,7 @@ const schema = z
     }
   )
   .refine(
-    (data:any) => {
+    (data) => {
       if(data.password!=data.confirmPassword) return false;
       return true;
     },
